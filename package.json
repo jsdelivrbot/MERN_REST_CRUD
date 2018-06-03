@@ -2,6 +2,10 @@
   "name": "MERN_REST_CRUD",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "8.9.0"
+  },
+
   "main": "server.js",
   "dependencies": {
     "axios": "^0.18.0",
@@ -28,6 +32,10 @@
     "webpack": "^4.1.1",
     "webpack-dev-middleware": "^3.0.1",
     "webpack-hot-middleware": "^2.21.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ketansrivastav/MERN_REST_CRUD"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
