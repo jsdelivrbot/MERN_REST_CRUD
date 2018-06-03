@@ -1,13 +1,14 @@
 {
-  "name": "fun",
+  "name": "MERN_REST_CRUD",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "dependencies": {
     "axios": "^0.18.0",
-    "body-parser": "^1.18.2",
     "express": "^4.16.3",
     "express-handlebars": "*",
+    "express-validator": "^5.2.0",
+    "mongoose": "^5.1.1",
     "react": "^16.2.0",
     "react-dev-utils": "^4.2.1",
     "react-dom": "^16.2.0"
@@ -20,16 +21,19 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "*",
     "babel-preset-react": "*",
-    "nodemon": "*",
+    "css-loader": "^0.28.11",
+    "http-proxy-middleware": "*",
+    "nodemon": "^1.17.5",
+    "style-loader": "^0.21.0",
     "webpack": "^4.1.1",
     "webpack-dev-middleware": "^3.0.1",
-    "webpack-hot-middleware": "^2.21.2",
-    "http-proxy-middleware": "*"
+    "webpack-hot-middleware": "^2.21.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "",
-    "dev": "node ./bin/npm_scripts/start-dev.js"
+    "start": "node backend/server",
+    "dev": "node ./bin/npm_scripts/start-dev.js",
+    "deploy": "node ./bin/npm_scripts/start-prod.js"
   },
   "author": "",
   "license": "ISC"

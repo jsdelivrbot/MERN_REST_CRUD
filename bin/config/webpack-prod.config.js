@@ -8,9 +8,10 @@ module.exports = {
     
            
             context: path.resolve('.'),
-            entry: {
-                app:[frontend_src + '/app.js']
-            },
+            entry: [
+              'babel-polyfill',
+              frontend_src + '/app.js'
+            ],
     
             output: {
     
@@ -24,13 +25,13 @@ module.exports = {
     
               rules:[
     
-                //   {
+                  {
     
-                //       test:/\.css$/,
+                      test:/\.css$/,
     
-                //       use:['style-loader','css-loader']
+                      use:['style-loader','css-loader']
     
-                //   }
+                  },
     
                 
                     {

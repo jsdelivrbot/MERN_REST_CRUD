@@ -1,0 +1,23 @@
+.wrapper {
+    background:#2d3236;
+    padding: 14px;
+    margin-bottom:14px;
+}
+
+.wrapper a {
+
+    color:white;
+    text-decoration :none
+
+}
+.wrapper a:hover {
+    text-decoration: underline;
+}
+.wrapper strong{
+    color:orange;
+}
+
+
+.wrapper h2 a {
+font-size: 18px;
+}

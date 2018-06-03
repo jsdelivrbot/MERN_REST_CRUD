@@ -5,6 +5,8 @@ if (module.hot) {
 import React from "react";
 import ReactDOM from "react-dom";
 import axios from 'axios';
+import Header from "./components/header";
+import RestClient from "./components/restclient";
 
 async function getData() {
 
@@ -22,16 +24,17 @@ class APP extends React.Component {
   }
  async componentDidMount() { 
    
-   this.setState({response : await getData()});
+  // this.setState({response : await getData()});
  }
   render(){
-    return (
-      <div>
-        {this.state.response}
-      </div>  
-    )
+
+    return ( <div > <Header />
+    
+    <RestClient/>
+    </div>  );
   }
 };
+
 
 
 ReactDOM.render(<APP /> , document.getElementById('root'))
