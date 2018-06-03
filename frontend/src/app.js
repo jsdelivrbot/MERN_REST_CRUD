@@ -1,3 +1,8 @@
+/*
+main react app
+
+*/
+// setting up condition for hot reloading during development mode
 if (module.hot) {
   module.hot.accept();
 }
@@ -5,29 +10,22 @@ if (module.hot) {
 import React from "react";
 import ReactDOM from "react-dom";
 import axios from 'axios';
+// the header component
 import Header from "./components/header";
+// the main interactive component
 import RestClient from "./components/restclient";
 
-async function getData() {
 
-  const data = await axios.get('http://localhost:3000/api');
-  return data.data;
-
-
-}
 class APP extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = { response: "nothing yet"}
+    
 
   }
- async componentDidMount() { 
-   
-  // this.setState({response : await getData()});
- }
-  render(){
 
+  render(){
+// render the application
     return ( <div > <Header />
     
     <RestClient/>

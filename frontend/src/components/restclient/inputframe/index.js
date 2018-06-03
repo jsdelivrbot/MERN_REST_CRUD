@@ -3,19 +3,28 @@ import axios from "axios";
 import Style from "./style.css";
 
 import EventEmitter from 'events';
+
+// internal pubSub for enabling comunication between the dropdown component and the parent component
 let pubSub = new EventEmitter();
+
+// component to render the drop down menu
 class HTTPDropDown extends React.Component {
     constructor(props){
         super(props);
+        // default value
         this.state = {selectedValue:'GET'};
+        //disable the post textarea
         pubSub.emit("postDisable","true");
+        //pass on the current state of the dropdown menu
         pubSub.emit("HTTPDropDownSelected",this.state.selectedValue)
 
 
     }
 
  handleChange(e){
+     //set the selected option as the selected value in state
      this.setState({selectedValue:e.target.value});
+     // tell the parent about current selection state
      pubSub.emit("HTTPDropDownSelected",e.target.value);
     
      if(e.target.value === "GET")
@@ -94,11 +103,16 @@ class InputFrame extends React.Component {
         pubSub.on("HTTPDropDownSelected",(val)=>{
             this.setState({HTTPValue:val})
         })
+        // called to diable the textarea
         pubSub.on("postDisable", (s) => {this.setState({textAreaDisabled:s})})
 
     };
 async sendRequest(){
+    // make AJAX calls
+
+    // display loading message on the outputFrame
     this.props.clientPubSub.emit("HTTPStart","Loading...")
+    // storing all required axios methods as a key value pair
     let VERBS = {GET: axios.get,
                  POST: axios.post,
                  PUT: axios.put,
@@ -107,7 +121,9 @@ async sendRequest(){
     let response  ;              
                   
 try{
+    // storing post data from the textarea
     let data = Object.assign({},{data:this.state.postData})
+    // makng the ajax call and storing the response
      response = await VERBS[this.state.HTTPValue](this.state.location, data);
     
     

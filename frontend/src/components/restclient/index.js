@@ -4,6 +4,7 @@ import OutputFrame from "./outputframe";
 import Style from "./style.css";
 import EventEmitter from "events";
 
+// pubsub for enabling interaction between inputFrame and outputFrame. the refrence of this var is passed to both the components
 const clientPubSub = new EventEmitter();
 
 

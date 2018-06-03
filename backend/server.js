@@ -20,8 +20,9 @@ var db = mongoose.connection;;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-console.log("connected",mongoose);
+// creating express app
 const app = express();
+// setting the view engine
 app.engine('hbs',exphbs({ extname: '.hbs'}));
 app.set('views',express_views);
 app.set('view engine','hbs');
@@ -30,10 +31,11 @@ app.set('view engine','hbs');
 app.use(express.urlencoded({extended: true})); 
 app.use(express.json());
 
+// setting up routes
 app.use('/',indexRoute);
 app.use('/album',albumRoute);
 
-
+// for static content
 app.use(express.static(www))
 
 

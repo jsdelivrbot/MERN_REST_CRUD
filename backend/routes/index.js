@@ -1,8 +1,8 @@
 const express = require('express');
-const route = express.Router();
-const {obj} = require('../bin/vars');
+
+// render the view for index
 route.get('/',(req,res)=>{ 
-    console.log(obj.a)
+    
     res.render('index');
 })
 

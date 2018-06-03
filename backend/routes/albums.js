@@ -3,6 +3,8 @@ const express = require('express');
 const route = express.Router() ;
 const albumController = require('../controllers/albumController');
 
+// setting routes with controller functions
+
 route.get('/list',(albumController.albumList));
 route.get('/:albumid',albumController.viewAlbum);
 

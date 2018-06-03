@@ -5,7 +5,10 @@ class OutputFrame extends React.Component {
     constructor(props){
         super(props);
         this.state = {msg:''}   ;
+
+        // pubsub method invoked from inputFrame to display loading messsage
         this.props.clientPubSub.on("HTTPStart", (data) => { this.setState({"msg":data})}) ;
+        // pubsub method invoked from inputFrame to display the result of ajax call
         this.props.clientPubSub.on("HTTPResponse", (data) => { this.setState({"msg":JSON.stringify(data.data)})}) ;
 
     };
