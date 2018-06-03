@@ -13,7 +13,7 @@ const path= require('path')
 
 
 
-const mongoDB = 'mongodb://root:simple.00@ds127490.mlab.com:27490/crud';
+const mongoDB = 'mongodb://'+process.env.dbUsert+':'+process.env.dbPassword+'@ds127490.mlab.com:27490/crud';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;;
