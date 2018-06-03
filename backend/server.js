@@ -3,9 +3,11 @@ const exphbs = require('express-handlebars');
 const indexRoute = require('./routes/index');
 const albumRoute = require('./routes/albums');
 const {www,express_views} = require('../bin/config/paths')
+const { sanitizeBody } = require('express-validator/filter');
+
 const mongoose = require('mongoose');
 
-const port = 8000;
+const port =  process.env.PORT||8000;
 
 const path= require('path')
 
